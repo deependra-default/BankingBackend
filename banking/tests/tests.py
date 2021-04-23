@@ -33,26 +33,6 @@ client = APIClient()
 
 fake = Faker()
 
-# Create your tests here.
-
-
-# class BaseClassTestCase(TestCase):
-#     def setUp(self):
-#         self.client = APIClient()
-
-#         self.user = UserFactory()
-#         self.client.force_authenticate(user=self.user)
-
-#         self.branch = BranchFactory()
-
-#         self.customer = CustomerFactory()
-#         self.customer.user = self.user
-#         self.customer.branch = self.branch
-#         self.customer.save()
-
-#         self.account = AccountFactory()
-#         self.account.customer = self.customer
-#         self.account.save()
 
 class BranchTestCase(TestCase):
     """
@@ -298,35 +278,6 @@ class CustomerEnquiryTestCase(TestCase):
         """
         request = self.client.get(self.url)
         self.assertEqual(request.status_code, 200)
-
-
-# class TransactionHistoryCsvTestCase(TestCase):
-#     """
-#     Test case for crediting amount in the customers account.
-#     """
-#     def setUp(self):
-#         """
-#         Set up for testing credit amount API.
-#         """
-#         self.client = APIClient()
-#         self.url = reverse("history")
-#         self.user = UserFactory()
-#         self.client.force_authenticate(user=self.user)
-#         self.transaction = TransactionFactory
-#         self.start_date = str(fake.date()) 
-#         self.end_date = str(fake.date()) 
-#         self.data ={
-#             "start_date": self.start_date,
-#             "end_date": self.end_date,
-#             "acc_ids":[]
-#         }
-
-#     def test_csv_download(self):
-#         """
-#         Test response on customr request for account enquiry. 
-#         """
-#         request = self.client.post(self.url, format='json', data=self.data)
-#         self.assertEqual(request.status_code, 200)
 
 
 class TransferAPITestCase(TestCase):
